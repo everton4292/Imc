@@ -17,20 +17,38 @@ class MainActivity : AppCompatActivity() {
 
 
         button.setOnClickListener {
+            //height and weight inputs
             var altura = altura.text.toString().replace(',', '.')
             var peso = peso.text.toString().replace(',', '.')
 
+            //validation function
+            fun isNumeric(str: String): Boolean {
+                return try {
+                    str.toDouble()
+                    true
+                } catch (e: NumberFormatException) {
+                    false
+                }
+            }
+
+            //validation
+            val validation = isNumeric(altura)
+            val validation2 = isNumeric(peso)
 
             if (peso.isEmpty() || altura.isEmpty()) {
                 Toast.makeText(this@MainActivity, "Peso ou Altura em branco", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
+            } else if (!validation || !validation2) {
+                Toast.makeText(this@MainActivity, "Peso ou Altura inválidos", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+
             }
 
-
+            //calculation
             var imc = peso.toFloat() / (altura.toFloat() * altura.toFloat())
             resultado.text = imc.toString()
 
-
+            //categories
             if (imc < 18.5) {
                 resultado2.text = "Abaixo do peso"
             } else if (imc in 18.5..24.9) {
