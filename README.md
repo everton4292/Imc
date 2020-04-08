@@ -1,23 +1,15 @@
 # IMC (Body Mass Index)
 
-## Android App created for the purpose of study
+ Android App created for the purpose of study
 
 ## A simple app for calculating IMC (Body Mass Index) 
-## Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women.
-## BMI Categories:
-## Underweight = <18.5
-## Normal weight = 18.5–24.9
-## Overweight = 25–29.9
-## Obesity = BMI of 30 or greater
+ Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women.
+ BMI Categories:
+ * Underweight = <18.5
+ * Normal weight = 18.5–24.9
+ * Overweight = 25–29.9
+ * Obesity = BMI of 30 or greater
 
-<p align="center"><br>
-  <a href="https://github.com/everton4292/omnistack10#satelite-DevRadar">IMC (Body Mass Index)</a>  | 
-  <a href="https://github.com/everton4292/Omnistack10#telescope-Technology">Technology</a>  | 
-  <a href="https://github.com/everton4292/Omnistack10#film_strip-images">Images</a>  | 
-  <a href="https://github.com/everton4292/Omnistack10#handshake-how-you-can-help">How you can help</a>
-  <br><br>
- </p>
- 
 
 # Technology
 ## The project was made using these technologies
@@ -27,9 +19,7 @@
 
 # Images
 
-![Mainr](https://i.imgur.com/28rr2sb.png)
-
-![Mainr2](https://i.imgur.com/JTCOT3T.png)
+![Mainr](https://i.imgur.com/28rr2sb.png) ![Mainr2](https://i.imgur.com/JTCOT3T.png)
 
 ## How you can help
 * Fork this repository and create a branch: git checkout -b featureName 
