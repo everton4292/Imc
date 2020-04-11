@@ -1,14 +1,13 @@
 package com.everton.startup
 
-import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import kotlinx.android.synthetic.*
-import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainViewModel : ViewModel() {
+
+    var error = MutableLiveData<Unit>()
+
 
     fun isNumeric(str: String): Boolean {
         return try {
@@ -20,39 +19,48 @@ class MainViewModel : ViewModel() {
 
     }
 
-
-    /*fun validation(altura: String, peso: String): MainActivity {
-        if (peso.isEmpty() || altura.isEmpty()) {
-            Toast.makeText(MainActivity(), "Peso ou Altura em branco", Toast.LENGTH_LONG)
-                .show()
-
-        }*/
-
-
-        var imc = MutableLiveData<Float>()
-        fun calculateIMC(altura: String, peso: String) {
-            imc.value = peso.toFloat() / (altura.toFloat() * altura.toFloat())
-
+    fun validation(altura: String, peso: String): Boolean {
+        if (!isNumeric(peso) || !isNumeric(altura)) {
+            return true
+        } else if (peso.isEmpty() || altura.isEmpty()) {
+            return false
         }
-
-        var categoria = MutableLiveData<String>()
-        fun showCategory(resultado: Float) {
-            if (resultado < 18.5) {
-                categoria.value = "Abaixo do peso"
-            } else if (resultado in 18.5..24.9) {
-                categoria.value = "Peso normal"
-            } else if (resultado in 25.0..29.9) {
-                categoria.value = "Sobrepeso"
-            } else if (resultado in 30.0..34.9) {
-                categoria.value = "Obesidade grau I"
-            } else if (resultado in 35.0..39.9) {
-                categoria.value = "Obesidade grau II"
-            } else if (resultado > 40.0) {
-                categoria.value = "Obesidade grau III"
-            }
-        }
-
+        return true
     }
+
+
+    fun calculateIMC(altura: String, peso: String) {
+        if (!validation(altura, peso)) {
+            error.value = Unit
+        } else {
+            val imc = peso.toFloat() / (altura.toFloat() * altura.toFloat())
+            showCategory(imc)
+        }
+    }
+
+
+    val resultado = MutableLiveData<Resultado>()
+    fun showCategory(imc: Float) {
+        resultado.value?.imc = imc.toString()
+        if (imc < 18.5) {
+            this.resultado.value?.categoria = "Abaixo do peso"
+        } else if (imc in 18.5..24.9) {
+            this.resultado.value?.categoria = "Peso normal"
+        } else if (imc in 25.0..29.9) {
+            this.resultado.value?.categoria = "Sobrepeso"
+        } else if (imc in 30.0..34.9) {
+            this.resultado.value?.categoria = "Obesidade grau I"
+        } else if (imc in 35.0..39.9) {
+            this.resultado.value?.categoria = "Obesidade grau II"
+        } else if (imc > 40.0) {
+            this.resultado.value?.categoria = "Obesidade grau III"
+        }
+    }
+}
+
+
+
+
 
 
 

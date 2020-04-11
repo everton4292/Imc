@@ -1,11 +1,9 @@
 package com.everton.startup
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -24,28 +22,24 @@ class MainActivity : AppCompatActivity() {
             var altura = altura.text.toString().replace(',', '.')
             var peso = peso.text.toString().replace(',', '.')
 
-            viewModel.isNumeric(altura)
-            viewModel.isNumeric(peso)
             viewModel.calculateIMC(altura, peso)
 
 
-
         }
-        viewModel.imc.observe(this, Observer { imc ->
-            resultado.text = imc.toString()
-            viewModel.showCategory(imc)
-            viewModel.categoria.observe(this, Observer { categoria ->
-                resultado2.text = categoria
-            })
+        viewModel.error.observe(this, Observer {
+            Toast.makeText(MainActivity(), "Peso ou Altura em branco", Toast.LENGTH_LONG)
+                .show()
+        })
+        viewModel.resultado.observe(this, Observer { resultado ->
+            resultado2.text = resultado.categoria
+            textViewResultado.text = resultado.imc
+
         })
 
 
     }
 
 }
-
-
-
 
 
 /*/validation function

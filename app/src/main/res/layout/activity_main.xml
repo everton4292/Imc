@@ -101,7 +101,7 @@
         app:layout_constraintTop_toBottomOf="@+id/peso" />
 
     <TextView
-        android:id="@+id/resultado"
+        android:id="@+id/textViewResultado"
         android:layout_width="108dp"
         android:layout_height="44dp"
         android:layout_marginTop="68dp"
@@ -126,7 +126,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultado" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewResultado" />
 
     <TextView
         android:id="@+id/textView4"
