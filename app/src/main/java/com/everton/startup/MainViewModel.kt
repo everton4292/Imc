@@ -3,15 +3,12 @@ package com.everton.startup
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-
 class MainViewModel : ViewModel() {
 
     var error = MutableLiveData<Unit>()
     val resultado = MutableLiveData<Resultado>()
 
     fun calculateIMC(altura: String, peso: String) {
-        altura.replace(',', '.')
-        peso.replace(',', '.')
 
         if (validation(altura, peso)) {
             val imc = peso.toFloat() / (altura.toFloat() * altura.toFloat())
@@ -31,7 +28,7 @@ class MainViewModel : ViewModel() {
     }
 
     private fun validation(altura: String, peso: String): Boolean {
-        if (!isValidNumber(peso) && !isValidNumber(altura)) {
+        if (!isValidNumber(peso) || !isValidNumber(altura)) {
             return false
         }
         return true
