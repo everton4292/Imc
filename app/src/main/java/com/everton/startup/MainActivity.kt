@@ -1,6 +1,9 @@
 package com.everton.startup
 
+import android.app.Activity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -15,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         ViewModelProviders.of(this).get(MainViewModel::class.java)
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,7 +27,45 @@ class MainActivity : AppCompatActivity() {
 
         var alturaMask = altura
         var pesoMask = peso
-        val simpleMaskFormatterAltura = SimpleMaskFormatter("A.AA")
+        var alt0 = altura
+        var peso0 = peso
+
+
+
+        alt0.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (s.toString().length == 1 && s.toString().startsWith("0")) {
+                    s?.clear()
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+        })
+
+        peso0.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (s.toString().length == 1 && s.toString().startsWith("0")) {
+                    s?.clear()
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+        })
+
+
+        val simpleMaskFormatterAltura = SimpleMaskFormatter ("A.AA")
         val simpleMaskFormatterPeso = SimpleMaskFormatter("AA.A")
         val maskTextWatcherAltura = MaskTextWatcher(alturaMask, simpleMaskFormatterAltura)
         val maskTextWatcherPeso = MaskTextWatcher(pesoMask, simpleMaskFormatterPeso)
@@ -48,3 +90,6 @@ class MainActivity : AppCompatActivity() {
         })
     }
 }
+
+
+

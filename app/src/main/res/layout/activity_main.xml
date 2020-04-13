@@ -79,7 +79,7 @@
         android:layout_marginTop="80dp"
         android:digits="0123456789.,"
         android:ems="10"
-        android:hint="Digite seu peso"
+        android:hint="Seu peso em quilos"
         android:inputType="number"
         android:maxLength="4"
         android:textAlignment="center"
