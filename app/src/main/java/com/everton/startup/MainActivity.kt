@@ -31,12 +31,21 @@ class MainActivity : AppCompatActivity() {
         var peso0 = peso
 
 
+        val simpleMaskFormatterAltura = SimpleMaskFormatter ("A.AA")
+        val simpleMaskFormatterPeso = SimpleMaskFormatter("AAA.AA")
+        val maskTextWatcherAltura = MaskTextWatcher(alturaMask, simpleMaskFormatterAltura)
+        val maskTextWatcherPeso = MaskTextWatcher(pesoMask, simpleMaskFormatterPeso)
+        alturaMask.addTextChangedListener(maskTextWatcherAltura)
+        pesoMask.addTextChangedListener(maskTextWatcherPeso)
+
 
         alt0.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (s.toString().length == 1 && s.toString().startsWith("0")) {
                     s?.clear()
+                    Toast.makeText(this@MainActivity, "O primeiro dígito não pode ser 0", Toast.LENGTH_LONG).show()
                 }
+
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -52,7 +61,10 @@ class MainActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 if (s.toString().length == 1 && s.toString().startsWith("0")) {
                     s?.clear()
+                    Toast.makeText(this@MainActivity, "O primeiro dígito não pode ser 0", Toast.LENGTH_LONG).show()
+
                 }
+
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -63,14 +75,6 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
-
-
-        val simpleMaskFormatterAltura = SimpleMaskFormatter ("A.AA")
-        val simpleMaskFormatterPeso = SimpleMaskFormatter("AA.A")
-        val maskTextWatcherAltura = MaskTextWatcher(alturaMask, simpleMaskFormatterAltura)
-        val maskTextWatcherPeso = MaskTextWatcher(pesoMask, simpleMaskFormatterPeso)
-        alturaMask.addTextChangedListener(maskTextWatcherAltura)
-        pesoMask.addTextChangedListener(maskTextWatcherPeso)
 
 
         button.setOnClickListener {

@@ -11,6 +11,8 @@
     <style name="AppTheme.noActionBar" parent="AppTheme">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">sans-serif</item>
     </style>
 
 </resources>
