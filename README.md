@@ -19,7 +19,7 @@
 
 # Images
 
-![Mainr](https://i.imgur.com/28rr2sb.png) ![Mainr2](https://i.imgur.com/JTCOT3T.png)
+![Mainr](https://i.imgur.com/VJ7kCC2.png) ![Mainr2](https://i.imgur.com/XR37vpA.png) ![Mainr3](https://i.imgur.com/Qs06CH1.png)
 
 ## How you can help
 * Fork this repository and create a branch: git checkout -b featureName 
