@@ -1,8 +1,8 @@
-# IMC (Body Mass Index)
+# Body Mass Index Calculator
 
  Android App created for the purpose of study
 
-## A simple app for calculating IMC (Body Mass Index) 
+## A simple app for calculating Body Mass Index
  Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women.
  BMI Categories:
  * Underweight = <18.5
