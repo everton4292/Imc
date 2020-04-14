@@ -1,5 +1,6 @@
 package com.everton.startup
 
+import android.text.Editable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
@@ -7,6 +8,14 @@ class MainViewModel : ViewModel() {
 
     var error = MutableLiveData<Unit>()
     val resultado = MutableLiveData<Resultado>()
+    val to00 = MutableLiveData<Unit>()
+
+    fun to0 (s: Editable?) {
+        if (s.toString().length == 1 && s.toString().startsWith("0")) {
+            s?.clear()
+            to00.value = Unit
+        }
+    }
 
     fun calculateIMC(altura: String, peso: String) {
 
@@ -39,22 +48,22 @@ class MainViewModel : ViewModel() {
         result.imc = imc.toString()
         when {
             imc < 18.5 -> {
-                result.categoria = "Abaixo do peso"
+                result.categoria = "Underweight"
             }
             imc in 18.5..24.9 -> {
-                result.categoria = "Peso normal"
+                result.categoria = "Normal weight"
             }
             imc in 25.0..29.9 -> {
-                result.categoria = "Sobrepeso"
+                result.categoria = "Overweight"
             }
             imc in 30.0..34.9 -> {
-                result.categoria = "Obesidade grau I"
+                result.categoria = "Class 1 obesity"
             }
             imc in 35.0..39.9 -> {
-                result.categoria = "Obesidade grau II"
+                result.categoria = "Class 2 obesity"
             }
             imc > 40.0 -> {
-                result.categoria = "Obesidade grau III"
+                result.categoria = "Class 3 obesity"
             }
         }
         resultado.value = result
