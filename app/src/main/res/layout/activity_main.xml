@@ -65,6 +65,7 @@
         android:layout_height="61dp"
         android:layout_marginTop="264dp"
         android:backgroundTint="#98fb98"
+        android:background="@drawable/rounded_edges"
         android:text="Calculate"
         android:textStyle="normal"
         android:textAllCaps="false"
