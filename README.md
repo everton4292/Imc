@@ -1,5 +1,7 @@
 # Body Mass Index Calculator
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/517498abf0d94013a68e2fd159ab769e)](https://app.codacy.com/manual/everton4292/body-mass-index?utm_source=github.com&utm_medium=referral&utm_content=everton4292/body-mass-index&utm_campaign=Badge_Grade_Dashboard)
+
 Android App created for the purpose of study. Made in Kotlin using MVVM architeture.
 
 ## A simple app for calculating Body Mass Index
