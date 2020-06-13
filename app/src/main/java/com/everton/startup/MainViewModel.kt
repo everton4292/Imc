@@ -4,20 +4,33 @@ import android.text.Editable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
+/**
+ *  View Model used for the MVVM architecture
+ */
+
 class MainViewModel : ViewModel() {
 
     var error = MutableLiveData<Unit>()
     val resultado = MutableLiveData<Resultado>()
     val to00 = MutableLiveData<Unit>()
 
-    fun to0 (s: Editable?) {
+    /**
+     *  Function used to validate the inputs from the user. If the input starts with "0" or
+     *  has only one character, the field resets until a valid input is used. A valid input
+     *  is two characters, not starting with "0".
+     */
+        fun to0 (s: Editable?) {
         if (s.toString().length == 1 && s.toString().startsWith("0")) {
             s?.clear()
             to00.value = Unit
         }
     }
 
-    fun calculateIMC(altura: String, peso: String) {
+    /**
+     * Function used to calculate the Body Mass Index(BMI in english, IMC in portuguese).
+     * It is calculated dividing the weight by the square of the height.
+     */
+        fun calculateIMC(altura: String, peso: String) {
 
         if (validation(altura, peso)) {
             val imc = peso.toFloat() / (altura.toFloat() * altura.toFloat())
