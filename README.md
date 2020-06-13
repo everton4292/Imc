@@ -1,6 +1,6 @@
 # Body Mass Index Calculator
 
- Android App created for the purpose of study
+ Android App created for the purpose of study. Made in Kotlin using MVVM architeture.
 
 ## A simple app for calculating Body Mass Index
  Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women.
